@@ -4,6 +4,7 @@
 NAME_KEYS="localhost"
 DESTINO="certs/dev/tls"
 ARCHIVO_IPS="script/ips.txt"
+GENERAR_P12=true
 
 # Verificamos que el archivo exista
 if [ ! -f "$ARCHIVO_IPS" ]; then
@@ -38,3 +39,15 @@ echo "[INFO] - ==============="
 mkcert -cert-file "${NAME_KEYS}-cert.pem" \
         -key-file "${NAME_KEYS}-key.pem" \
         "${IPS[@]}"
+
+# Genera certificado .p12 para spring
+if [ "$GENERAR_P12" = true ]; then
+    echo "[INFO] - Generando archivo PKCS12 (.p12)..."
+
+    openssl pkcs12 -export \
+        -in "${NAME_KEYS}-cert.pem" \
+        -inkey "${NAME_KEYS}-key.pem" \
+        -out "${NAME_KEYS}.p12" \
+        -name "myalias" \
+        -password pass:changeit
+fi

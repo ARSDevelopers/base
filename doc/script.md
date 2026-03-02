@@ -16,13 +16,14 @@ Mirar el fichero `repos.txt` situado en la carpeta `script`. En ella se deberá 
 ./script/descargar_repo.sh
 ```
 
-## generate_keys_ssl.sh
+## `generate_keys_ssl.sh`
 
 Script para generar certificado ssl para el entorno de `nginx`
 
 ### Datos a tener en cuenta
 
 Mirar el fichero `ips.txt` para poner las ips que se necesita el entorno de desarrollo.
+Por defecto, esta activo el `.p12` para poder genera para Spring
 
 Herramientas necesarias
 
