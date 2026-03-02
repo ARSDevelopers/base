@@ -13,10 +13,10 @@ Mirar el fichero `repos.txt` situado en la carpeta `script`. En ella se deberá 
 
 ```bash
 # Desde 'base'
-./script/descargar_repo.bash
+./script/descargar_repo.sh
 ```
 
-## `generate_keys_ssl.bash`
+## generate_keys_ssl.sh
 
 Script para generar certificado ssl para el entorno de `nginx`
 
