@@ -1,6 +1,6 @@
 # Uso de script
 
-## `descargar_repo.bash`
+## `descargar_repo.sh`
 
 Script para poder descarga los repositorios de la organización
 Por el momento se tiene **2** pero se espera amplicar
@@ -32,5 +32,5 @@ Herramientas necesarias
 
 ```bash
 # Desde 'base'
-./script/generate_keys_ssl.bash
+./script/generate_keys_ssl.sh
 ```
