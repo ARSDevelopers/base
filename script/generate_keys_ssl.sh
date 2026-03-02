@@ -36,5 +36,5 @@ done
 echo "[INFO] - ==============="
 
 mkcert -cert-file "${NAME_KEYS}-cert.pem" \
-        -key-file "${NAME_KEYS}-key.key" \
+        -key-file "${NAME_KEYS}-key.pem" \
         "${IPS[@]}"
