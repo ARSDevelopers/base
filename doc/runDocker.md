@@ -8,4 +8,7 @@ Una vez que ya no ser requiera el servicio, se debe de para la red para utilizar
 docker compose --profile spring-stack up
 # para odoo
 docker compose --profile odoo-stack up
+# para full-stack
+docker compose --profile full-stack up
+
 ```
