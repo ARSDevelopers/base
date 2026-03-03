@@ -20,3 +20,20 @@ Puedes ver el roadmap del proyecto [aquí](https://github.com/orgs/Sembrem-prj/p
 | :----------- | :----- |
 | **Frontend** | Enlace |
 | **Backend**  | Enlace |
+
+## Documentación
+
+| Apartado           | Enlace                             |
+| :----------------- | :--------------------------------- |
+| Run docker profile | [runDocker.md](./doc/runDocker.md) |
+| Scripts            | [script.md](./doc/script.md)       |
+
+## Entrada de aplicaicones
+
+### Spring
+
+[http://localhost:8090/](http://localhost:8090/)
+
+### Odoo
+
+[https://localhost](https://localhost)

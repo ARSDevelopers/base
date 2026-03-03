@@ -47,7 +47,7 @@ if [ "$GENERAR_P12" = true ]; then
     openssl pkcs12 -export \
         -in "${NAME_KEYS}-cert.pem" \
         -inkey "${NAME_KEYS}-key.pem" \
-        -out "${NAME_KEYS}.p12" \
+        -out "../spring/${NAME_KEYS}.p12" \
         -name "myalias" \
         -password pass:changeit
 fi
