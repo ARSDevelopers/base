@@ -1,19 +1,25 @@
 # Uso de script
 
-## `descargar_repo.sh`
+## Para descargar repositorios desde git repo / modulos
 
 Script para poder descarga los repositorios de la organización
 Por el momento se tiene **2** pero se espera amplicar
 
 ### Datos a tener en cuenta
 
-Mirar el fichero `repos.txt` situado en la carpeta `script`. En ella se deberá de poner tanto repos para poder iniciar los programas
+Mira los ficheros que relacionado
+
+* `repos.txt`
+* `repos_moodule_odoo.txt`
 
 ### Ejecución
 
 ```bash
 # Desde 'base'
+## Descargar servicio / repo
 ./script/descargar_repo.sh
+## Descargar los módulos de Odoo
+./script/download_module_odoo.sh
 ```
 
 ## `generate_keys_ssl.sh`
