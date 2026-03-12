@@ -120,7 +120,8 @@ services:
       mysql:
         condition: service_healthy
     volumes:
-      - ${CERT_PATH_SPRING}:/app/src/main/resources/keystore:ro
+      - ${CERT_PATH_SPRING}:/app/keystore:ro
+      - ${CERT_PATH_JWT}:/app/keys:ro
     networks:
       - smb-network
 
