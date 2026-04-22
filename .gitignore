@@ -14,3 +14,10 @@ Gemfile.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Configuración, logs y certificados
+.env
+log/
+*.log
+certs/
+*.pem
