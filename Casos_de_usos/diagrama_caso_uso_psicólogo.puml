@@ -4,15 +4,24 @@ left to right direction
 actor Psicologo as ps
 
 rectangle "Módulo Psicólogo" {
-ps -- (Contratar plan)
-ps -- (Gestionar perfil propio)
-ps -- (Crear enlace invitado)
-ps -- (Ver listado pacientes)
-ps -- (Ver registro paciente)
-ps -- (Ver estadísticas paciente)
-ps -- (Exportar datos paciente)
-ps -- (Eliminar registro)
-ps -- (Cambiar logo SVG)
+
+ps -- (Contratar o renovar plan)
+pa -- (Iniciar sesión)
+ps -- (Gestionar perfil profesional)
+ps -- (Generar enlace de invitación)
+
+ps -- (Consultar listado de pacientes)
+ps -- (Consultar historial del paciente)
+ps -- (Consultar estadísticas de paciente)
+
+ps -- (Configurar visibilidad de estadísticas)
+ps -- (Exportar datos)
+
+ps -- (Desactivar paciente)
+ps -- (Reactivar paciente)
+
 }
+
+(Consultar estadísticas de paciente) ..> (Consultar historial del paciente) : <<include>>
 
 @enduml

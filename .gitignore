@@ -1,23 +1,4 @@
-# Directorios temporales
-tmp/
-
-# Jekyll
-_site/
-.jekyll-cache/
-.jekyll-metadata
-
-# Ruby
-vendor/
-.bundle/
-Gemfile.lock
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Configuración, logs y certificados
+00_*/
+certs/
 .env
 log/
-*.log
-certs/
-*.pem

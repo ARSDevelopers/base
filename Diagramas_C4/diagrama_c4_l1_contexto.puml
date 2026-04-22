@@ -1,0 +1,21 @@
+@startuml "C4 - Nivel 1: Contexto"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+' Personas
+Person(paciente, "Paciente", "Rellena formularios clínicos")
+Person(psicologo, "Psicólogo", "Gestiona pacientes y revisa formularios")
+Person(admin, "Administrador", "Administra usuarios y planes (Odoo)")
+
+' Sistemas
+System(clinico, "Backend Clínico", "Spring Boot + MySQL: Gestiona lógica de formularios y datos clínicos")
+System(odoo, "Odoo", "Usuarios, planes, facturación y JWT")
+
+' Relaciones
+Rel(paciente, clinico, "Usa app/web")
+Rel(psicologo, clinico, "Consulta y gestiona datos clínicos")
+Rel(admin, odoo, "Administra usuarios y planes")
+Rel(clinico, odoo, "Consulta estado de usuario y plan (JWT + API)")
+
+SHOW_LEGEND()
+
+@enduml

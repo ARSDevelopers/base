@@ -1,0 +1,46 @@
+@startuml "C4 - Nivel 2: Contenedores"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+' === PERSONAS ===
+Person(paciente, "Paciente", "Rellena formularios clínicos")
+Person(psicologo, "Psicólogo", "Gestiona pacientes y revisa formularios")
+Person(admin, "Administrador", "Administra usuarios y planes (Odoo)")
+
+' === SISTEMA PRINCIPAL ===
+System_Boundary(s1, "Plataforma de Gestión Clínica") {
+
+    ' --- FRONTEND ---
+    Container(app, "App Móvil", "Flutter (Dart)", "Permite al paciente rellenar formularios post-sesión")
+    Container(web_user, "Web Paciente", "Vue.js", "Permite rellenar formularios desde navegador")
+    Container(web_psi, "Web Psicólogo", "Vue.js", "Permite gestionar pacientes y revisar respuestas")
+
+    ' --- BACKEND ---
+    Container(api_form, "Backend Clínico", "Spring Boot (Java)", "Gestiona formularios, estadísticas y reglas de negocio")
+    Container(odoo, "Odoo", "Odoo (Python)", "Gestión de usuarios, planes, facturación y JWT")
+
+    ' --- BASES DE DATOS ---
+    ContainerDb(db_form, "Base de Datos Formularios", "MySQL", "Almacena respuestas y datos clínicos")
+    ContainerDb(db_odoo, "Base de Datos Usuarios", "PostgreSQL", "Almacena usuarios, planes y roles")
+}
+
+' === RELACIONES USUARIOS → FRONTEND ===
+Rel(paciente, app, "Usa")
+Rel(paciente, web_user, "Usa")
+Rel(psicologo, web_psi, "Usa")
+Rel(admin, odoo, "Administra usuarios y planes")
+
+' === FRONTEND → BACKEND ===
+Rel(app, api_form, "Consume API REST (JWT validado)")
+Rel(web_user, api_form, "Consume API REST (JWT validado)")
+Rel(web_psi, api_form, "Consulta datos clínicos (JWT validado)")
+Rel(web_psi, odoo, "Consulta usuarios y planes")
+
+' === BACKEND → BASES DE DATOS ===
+Rel(api_form, db_form, "Lee/Escribe")
+Rel(odoo, db_odoo, "Lee/Escribe")
+
+' === BACKEND → AUTENTICACIÓN ===
+Rel(api_form, odoo, "Valida JWT y estado de suscripción")
+
+SHOW_LEGEND()
+@enduml

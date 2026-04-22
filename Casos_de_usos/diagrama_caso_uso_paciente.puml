@@ -4,14 +4,17 @@ left to right direction
 actor Paciente as pa
 
 rectangle "Módulo Paciente" {
+
+pa -- (Registrarse mediante código de invitación)
 pa -- (Iniciar sesión)
-pa -- (Introducir datos)
-pa -- (Ver estadísticas)
-pa -- (Registrarse por enlace)
-pa -- (Acceder al panel)
-pa -- (Exportar datos*?)
-pa -- (Guardar registro)
-pa -- (Eliminar cuenta - cuenta desactivada)
+pa -- (Rellenar formulario post-sesión)
+pa -- (Solicitar eliminación de cuenta)
+
+pa -- (Ver estadísticas personales)
+
+(Ver estadísticas personales) ..> (Consultar historial de formularios) : <<include>>
+pa -- (Consultar historial de formularios)
+
 }
 
 @enduml

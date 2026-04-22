@@ -1,0 +1,39 @@
+@startuml "C4 - Nivel 3: Componentes Backend Clínico"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary(api, "Backend Clínico - Spring Boot") {
+
+    ' === CONTROLADORES ===
+    Component(controller, "FormController", "REST Controller", "Expone endpoints para gestionar formularios post-sesión")
+    
+    ' === SERVICIOS ===
+    Component(formService, "FormService", "Service", "Lógica de negocio de formularios y estadísticas")
+    Component(patientService, "PatientService", "Service", "Gestiona referencias de pacientes (solo IDs, vinculación con formularios)")
+
+    ' === REPOSITORIOS ===
+    Component(formRepository, "FormRepository", "JPA Repository", "Acceso a datos de formularios")
+    Component(patientRepository, "PatientRepository", "JPA Repository", "Vincula formularios con paciente (solo ID, no datos sensibles)")
+
+    ' === SEGURIDAD ===
+    Component(jwtValidator, "JWTValidator", "Interceptor/Filter", "Valida token emitido por Odoo y comprueba roles/estado plan")
+}
+
+' === BASE DE DATOS ===
+ContainerDb(db_form, "Base de Datos Formularios", "MySQL", "Almacena respuestas y metadatos clínicos")
+
+' === RELACIONES INTERNAS ===
+Rel(controller, formService, "Llama")
+Rel(formService, formRepository, "Usa")
+Rel(formService, patientService, "Usa")
+Rel(patientService, patientRepository, "Usa")
+
+Rel(formRepository, db_form, "Lee/Escribe")
+Rel(patientRepository, db_form, "Lee/Escribe")
+
+Rel(jwtValidator, controller, "Protege endpoints y valida JWT")
+
+' === RELACIONES EXTERNAS ===
+Rel(jwtValidator, odoo, "Valida token y estado del usuario/plan")
+
+SHOW_LEGEND()
+@enduml

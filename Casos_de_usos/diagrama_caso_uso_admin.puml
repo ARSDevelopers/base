@@ -8,6 +8,10 @@ ad -- (Subir logo empresa)
 ad -- (Verificar identidad)
 ad -- (Bloquear cuenta)
 ad -- (Dar de alta psicólogo)
+ad -- (Validar identidad de psicólogo)
+ad -- (Gestionar planes de suscripción)
+ad -- (Bloquear o suspender cuenta)
+ad -- (Gestionar configuración global del sistema)
 }
 
 @enduml

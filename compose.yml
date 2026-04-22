@@ -1,0 +1,134 @@
+services:
+  # ====== NGINX: SPRING ======
+  nginx_spring:
+    image: nginx:alpine
+    profiles: ["spring-stack"]
+    container_name: smb_nginx_spring
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./log/nginx:/var/log/nginx
+      - ${CERT_PATH}:/etc/nginx/certs:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/nginx-spring.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - spring
+      - mysql
+    networks:
+      - smb-network
+
+  # ====== NGINX: ODOO ======
+  nginx_odoo:
+    image: nginx:alpine
+    profiles: ["odoo-stack"]
+    container_name: smb_nginx_odoo
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./log/nginx:/var/log/nginx
+      - ${CERT_PATH}:/etc/nginx/certs:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/nginx-odoo.conf:/etc/nginx/conf.d/default.conf:rw
+    depends_on:
+      - odoo
+      - postgres
+    networks:
+      - smb-network
+
+  # ====== ODOO: ODOO ======
+  odoo:
+    container_name: smb_odoo
+    image: odoo:16
+    profiles: ["odoo-stack"]
+    restart: always
+    build:
+      context: ./service-odoo-sembrem
+      dockerfile: ./odoo_custom/Dockerfile
+    expose:
+      - "8069"
+    volumes:
+      - odoo-filestore:/var/lib/odoo
+      - ./log/odoo:/var/log/odoo
+      - ./service-odoo-sembrem/config/odoo:/etc/odoo
+      - ./service-odoo-sembrem/keys:/etc/odoo/keys:ro
+      - ./service-odoo-sembrem/extra-addons:/mnt/extra-addons
+    depends_on:
+      - postgres
+    command: odoo --dev=reload
+    networks:
+      - smb-network
+
+  # ====== ODOO: BD POSTGRESQL ======
+  postgres:
+    container_name: smb_postgres
+    image: postgres:14
+    profiles: ["odoo-stack"]
+    restart: always
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      PGDATA: ${PGDATA}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - smb-network
+
+  # ====== SPRING: JAVA ======
+  spring:
+    build:
+      context: ./back-springboot-arsdev
+      dockerfile: ./Dockerfile
+    profiles: ["spring-stack"]
+    container_name: smb_spring
+    ports:
+      - "8090:8080"
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SERVER_ADDRESS: 0.0.0.0
+      SERVER_PORT: 8080
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ${CERT_PATH_SPRING}:/app/src/main/resources/keystore:ro
+    networks:
+      - smb-network
+
+  # ====== SPRING: BD MYSQL ======
+  mysql:
+    image: mysql:8.4
+    profiles: ["spring-stack"]
+    container_name: ${BD_NAME:-smb_mysql}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - smb-network
+
+volumes:
+  odoo-filestore:
+  postgres-data:
+  db_data:
+
+networks:
+  smb-network:
+    driver: bridge
