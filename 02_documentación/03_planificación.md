@@ -37,4 +37,4 @@ Esta estapa consiste en llegar a los siguientes requisitos mínimos
 ### Etapa 3 - añadir valor añadido
 
 - No se pueden enviar datos sensibles por el chat.
-- Se incluye IA revisada por el psicologo para tener información sobre el problema más común de ese paciente.
+- Se incluye IA revisada por el psicologo para que el paciente pueda consultar información sobre el problema/transtorno más común que tiene.
