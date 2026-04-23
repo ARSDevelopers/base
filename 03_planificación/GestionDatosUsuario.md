@@ -18,7 +18,7 @@ Todas las interacciones con los registros y las sesiones se guardan en la BD.
 Al renaudar la atención psicológoca o al cambiar de dispositivo al tener email + contraseña → backend devuelve user_id -> patient_id
 
 ## Flujo
-| Paso 1 | Paso 2 | paso3 |
+| Paso 1 | Paso 2 | Paso3 |
 |------------| ----------- | ------------- |
 | Psicólogo crea codigo de invitación con un alias -> | Paciente entra código -> | Backend crea el usuario y lo vincula -> |
 | (Backend) Genera un *invite_code* | (Paciente) Crea credenciales - email y contraseña  | (Backend) Se crea patient_id  |
