@@ -1,0 +1,3 @@
+https://github.com/ARSDevelopers/service-odoo-sembrem.git
+https://github.com/ARSDevelopers/back-springboot-arsdev.git
+https://github.com/ARSDevelopers/frontend_flutter.git

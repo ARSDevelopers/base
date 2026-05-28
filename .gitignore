@@ -1,8 +1,19 @@
+# Logs y temporales
 00_*/
-certs/
-.env
 log/
 .vscode/
-back-springboot-arsdev/
-frontend-web-vue/
-service-odoo-sembrem/
+
+# Archivos de entorno locales
+**/.env
+
+# Certificados de desarrollo (excepto estructura de carpetas y archivos .gitkeep)
+config/certs/**/*
+!config/certs/
+!config/certs/**/
+!config/certs/**/*.gitkeep
+
+# Aplicaciones y servicios independientes (repositorios Git independientes)
+backend/back-springboot-arsdev/
+frontend/frontend-web-vue/
+frontend/frontend_flutter/
+orm/service-odoo-sembrem/

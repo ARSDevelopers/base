@@ -1,7 +1,6 @@
 $ProjectRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$Archivo = Join-Path $ProjectRoot "script/repos_module_odoo.txt"
-$NameOdoo = "service-odoo-sembrem"
-$Destino = Join-Path $ProjectRoot "$NameOdoo/extra-addons/activos/propios"
+$Archivo = Join-Path $ProjectRoot "scripts/repos_module_odoo.txt"
+$Destino = Join-Path $ProjectRoot "orm/service-odoo-sembrem/extra-addons/activos/propios"
 
 # Verificar que el archivo exista
 if (-not (Test-Path -Path $Archivo -PathType Leaf)) {
@@ -28,7 +27,6 @@ Get-Content $Archivo | ForEach-Object {
     }
 
     Write-Host "[INFO] - Clonando $Repo ..."
-    # Obtener el nombre del repo de la URL (ej. https://github.com/user/repo.git -> repo)
     $RepoName = [System.IO.Path]::GetFileNameWithoutExtension($Repo)
     $DestPath = Join-Path $Destino $RepoName
     git clone $Repo $DestPath

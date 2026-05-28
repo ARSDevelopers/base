@@ -13,15 +13,29 @@ update_git_repo() {
     fi
 }
 
-# 1. Actualizar directorios raíz que contienen .git
-for dir in "$PROJECT_ROOT"/*; do
+# 1. Actualizar repositorios en frontend
+for dir in "$PROJECT_ROOT"/frontend/*; do
     if [ -d "$dir" ]; then
         update_git_repo "$dir"
     fi
 done
 
-# 2. Actualizar módulos propios de Odoo que contienen .git
-ODOO_PROPIOS="$PROJECT_ROOT/service-odoo-sembrem/extra-addons/activos/propios"
+# 2. Actualizar repositorios en backend
+for dir in "$PROJECT_ROOT"/backend/*; do
+    if [ -d "$dir" ]; then
+        update_git_repo "$dir"
+    fi
+done
+
+# 3. Actualizar repositorios en orm
+for dir in "$PROJECT_ROOT"/orm/*; do
+    if [ -d "$dir" ]; then
+        update_git_repo "$dir"
+    fi
+done
+
+# 4. Actualizar módulos propios de Odoo que contienen .git
+ODOO_PROPIOS="$PROJECT_ROOT/orm/service-odoo-sembrem/extra-addons/activos/propios"
 if [ -d "$ODOO_PROPIOS" ]; then
     for dir in "$ODOO_PROPIOS"/*; do
         if [ -d "$dir" ]; then

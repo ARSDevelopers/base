@@ -5,8 +5,8 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 # Conf de variables
 NAME_KEYS="localhost"
-DESTINO="$PROJECT_ROOT/certs/dev/tls"
-ARCHIVO_IPS="$PROJECT_ROOT/script/ips.txt"
+DESTINO="$PROJECT_ROOT/config/certs/dev/tls"
+ARCHIVO_IPS="$PROJECT_ROOT/scripts/ips.txt"
 GENERAR_P12=true
 
 # Verificamos que el archivo exista
@@ -28,7 +28,7 @@ while IFS= read -r linea || [ -n "$linea" ]; do
 done < "$ARCHIVO_IPS"
 
 # Creamos carpeta destino
-mkdir -p "$PROJECT_ROOT/certs"
+mkdir -p "$PROJECT_ROOT/config/certs"
 mkdir -p "$DESTINO" || exit 1
 cd "$DESTINO" || exit 1
 

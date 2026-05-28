@@ -25,8 +25,8 @@ Puedes ver el roadmap del proyecto [aquí](https://github.com/orgs/Sembrem-prj/p
 
 | Apartado           | Enlace                             |
 | :----------------- | :--------------------------------- |
-| Run docker profile | [runDocker.md](./doc/runDocker.md) |
-| Scripts            | [script.md](./doc/script.md)       |
+| Run docker profile | [runDocker.md](./docs/guias/runDocker.md) |
+| Scripts            | [script.md](./docs/guias/script.md)       |
 
 ## Entrada de aplicaicones
 

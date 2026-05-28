@@ -2,8 +2,8 @@ $ProjectRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 
 # Conf de variables
 $NameKeys = "localhost"
-$Destino = Join-Path $ProjectRoot "certs/dev/tls"
-$ArchivoIps = Join-Path $ProjectRoot "script/ips.txt"
+$Destino = Join-Path $ProjectRoot "config/certs/dev/tls"
+$ArchivoIps = Join-Path $ProjectRoot "scripts/ips.txt"
 $GenerarP12 = $true
 
 # Verificamos que el archivo exista
@@ -49,7 +49,7 @@ Get-Content $ArchivoIps | ForEach-Object {
 }
 
 # Creamos carpeta destino
-$CertsRoot = Join-Path $ProjectRoot "certs"
+$CertsRoot = Join-Path $ProjectRoot "config/certs"
 if (-not (Test-Path -Path $CertsRoot -PathType Container)) {
     New-Item -ItemType Directory -Force -Path $CertsRoot | Out-Null
 }
