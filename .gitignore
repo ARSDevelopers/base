@@ -3,3 +3,6 @@ certs/
 .env
 log/
 .vscode/
+back-springboot-arsdev/
+frontend-web-vue/
+service-odoo-sembrem/
