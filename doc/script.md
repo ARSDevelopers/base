@@ -17,12 +17,12 @@ Mira los ficheros relacionados
 ```bash
 # Desde 'base'
 ## Descargar servicio / repo
-./script/descargar_repo.shtodos los conta
+./script/git_clone.shtodos los conta
 ## Descargar los módulos de Odoo
 ./script/download_module_odoo.sh
 ```
 
-## 2. `generate_keys_ssl.sh`
+## 2. `generate_ssl.sh`
 
 Script para generar certificado ssl para el entorno de `nginx`
 
@@ -39,5 +39,5 @@ Herramientas necesarias
 
 ```bash
 # Desde 'base'
-./script/generate_keys_ssl.sh
+./script/generate_ssl.sh
 ```
