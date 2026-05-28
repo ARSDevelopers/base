@@ -1,8 +1,10 @@
 #!/bin/bash
 
-ARCHIVO="script/repos_module_odoo.txt"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+ARCHIVO="$PROJECT_ROOT/script/repos_module_odoo.txt"
 NAME_ODOO="service-odoo-sembrem"
-DESTINO="${NAME_ODOO}/extra-addons/activos/propios"
+DESTINO="$PROJECT_ROOT/${NAME_ODOO}/extra-addons/activos/propios"
 
 # Verificar que el archivo exista
 if [ ! -f "$ARCHIVO" ]; then
@@ -15,6 +17,8 @@ mkdir -p "$DESTINO" || exit 1
 
 echo "[INFO] - Descargando repos en: $DESTINO"
 echo "----------------------------------------"
+
+cd "$PROJECT_ROOT" || exit 1
 
 while IFS= read -r REPO || [ -n "$REPO" ]; do
     # Ignorar líneas vacías o comentarios

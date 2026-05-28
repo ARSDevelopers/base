@@ -1,4 +1,4 @@
-https://github.com/Sembrem-prj/custom_gestion_clinica
-https://github.com/Sembrem-prj/arsdev_custom_subscription_sembrem
-https://github.com/Sembrem-prj/arsdev_custom_pageweb_sembrem
-https://github.com/Sembrem-prj/arsdev_custom_jwt_sembrem
+https://github.com/ARSDevelopers/custom_gestion_clinica
+https://github.com/ARSDevelopers/arsdev_custom_subscription_sembrem
+https://github.com/ARSDevelopers/arsdev_custom_pageweb_sembrem
+https://github.com/ARSDevelopers/arsdev_custom_jwt_sembrem

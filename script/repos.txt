@@ -1,2 +1,2 @@
-https://github.com/Sembrem-prj/service-odoo-sembrem.git
-https://github.com/Sembrem-prj/back-springboot-arsdev.git
+https://github.com/ARSDevelopers/service-odoo-sembrem.git
+https://github.com/ARSDevelopers/back-springboot-arsdev.git
