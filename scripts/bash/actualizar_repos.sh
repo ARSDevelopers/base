@@ -41,7 +41,7 @@ if [ -d "$ODOO_PROPIOS" ]; then
         if [ -d "$dir" ]; then
             update_git_repo "$dir"
         fi
-    fi
+    done
 fi
 
 echo "----------------------------------------"
