@@ -104,8 +104,8 @@ Podemos agruparlas en **tres grandes bloques**:
 3. **Nuestra solución**
     Queremos ser el **puente de conexión** entre ambas entidades:
       * Tomamos lo mejor del **diseño** de la competencia.
-      * Permitir que el paciente sea dueño de sus propios datos en su móvil, pero esta decida compartirlos de forma cifrada con su terapeuta de SEMBREM.
-      * Conectamos los **datos** con el *terapeuta* o *psicólogo de Alzira (SEMBRE)* de forma `segura`.
+      * Permitir que el paciente sea dueño de sus propios datos en su móvil, pero esta decida compartirlos de forma cifrada con su terapeuta.
+      * Conectamos los **datos** con el *terapeuta* o *psicólogo de Alzira (SEMBREM)* de forma `segura`.
 
 #### El autorregistro clásico
 

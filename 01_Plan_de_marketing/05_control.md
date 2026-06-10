@@ -10,7 +10,7 @@ Queremos evaluar el impacto de las acciones del plan de marketing para asegurar 
 
 Mediante análisis de datos queremos recoger estos datos de forma anónima:
 - Numero de psicólogos registrados.
-- Numero de psicólogos que usan la app.
+- Numero de psicólogos que  activamente la app.
 - Numero de pacientes registrados.
 - Numero de pacientes que usan la app.
 - Tasa de conversión de psicólogos a plan de pago.

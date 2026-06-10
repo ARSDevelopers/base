@@ -2,12 +2,13 @@
 layout: default
 title: 1. Objetivos
 ---
+# MOIRA - Plataforma de Seguimiento Psicológico en Remoto
 # 1. Objetivos de Marketing
 
 
 ## 1.1. Objetivos generales
 
-Queremos crear una aplicación que ayude al bienestar mental de los pacientes mediante un sistema de seguimiento que permita centralizar sus datos en un único lugar de forma accesible y segura. Los datos solo serán accesibles para el propio paciente y para su psicólogo o terapeuta de SEMBREM.
+Motivados por la entidad SEMBREM, queremos crear una aplicación que ayude al bienestar mental de los pacientes mediante un sistema de seguimiento que permita centralizar sus datos en un único lugar de forma accesible y segura. Los datos solo serán accesibles para el propio paciente y para su psicólogo.
 
 Asimismo, queremos que dichos profesionales puedan acceder a la información de sus pacientes para realizar un seguimiento de su evolución y mejorar la calidad de la intervención terapéutica.
 
