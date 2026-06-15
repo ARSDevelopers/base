@@ -9,7 +9,6 @@ Scripts para automatizar la descarga y actualización de los repositorios y mód
 Encuentra estos archivos en la carpeta `scripts/`:
 
 * `repos.txt`: Contiene los repositorios principales a clonar.
-* `repos_module_odoo.txt`: Contiene los repositorios de módulos personalizados de Odoo.
 * `ips.txt`: Contiene las direcciones IP para las cuales se generarán los certificados SSL.
 
 ### 1.2. Ejecución
@@ -18,11 +17,8 @@ Puedes ejecutar los scripts correspondientes desde la raíz del proyecto (`Proye
 
 #### En Linux / Bash:
 ```bash
-# Descargar repositorios principales (se clonarán en backend/, frontend/ y orm/)
+# Descargar repositorios principales (se clonarán en backend/ y frontend/)
 ./scripts/bash/descargar_repo.sh
-
-# Descargar módulos personalizados de Odoo (se clonarán en orm/service-odoo-sembrem/extra-addons/activos/propios/)
-./scripts/bash/descargar_modulos_odoo.sh
 
 # Actualizar todos los repositorios locales a la última versión
 ./scripts/bash/actualizar_repos.sh
@@ -32,9 +28,6 @@ Puedes ejecutar los scripts correspondientes desde la raíz del proyecto (`Proye
 ```powershell
 # Descargar repositorios principales
 .\scripts\powershell\descargar_repo.ps1
-
-# Descargar módulos de Odoo
-.\scripts\powershell\descargar_modulos_odoo.ps1
 
 # Actualizar todos los repositorios locales
 .\scripts\powershell\actualizar_repos.ps1

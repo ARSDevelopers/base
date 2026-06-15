@@ -33,7 +33,3 @@ Puedes ver el roadmap del proyecto [aquí](https://github.com/orgs/Sembrem-prj/p
 ### Spring
 
 [http://localhost:8090/](http://localhost:8090/)
-
-### Odoo
-
-[https://localhost](https://localhost)

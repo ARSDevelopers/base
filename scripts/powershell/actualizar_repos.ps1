@@ -14,6 +14,9 @@ function Update-GitRepo {
     }
 }
 
+# 0. Actualizar el propio repositorio base (proyecto principal)
+Update-GitRepo $ProjectRoot
+
 # 1. Actualizar repositorios en frontend que contienen .git
 $FrontendDir = Join-Path $ProjectRoot "frontend"
 if (Test-Path -Path $FrontendDir -PathType Container) {
@@ -30,20 +33,10 @@ if (Test-Path -Path $BackendDir -PathType Container) {
     }
 }
 
-# 3. Actualizar repositorios en orm que contienen .git
-$OrmDir = Join-Path $ProjectRoot "orm"
-if (Test-Path -Path $OrmDir -PathType Container) {
-    Get-ChildItem -Path $OrmDir -Directory | ForEach-Object {
-        Update-GitRepo $_.FullName
-    }
-}
-
-# 4. Actualizar módulos propios de Odoo que contienen .git
-$OdooPropios = Join-Path $OrmDir "service-odoo-sembrem/extra-addons/activos/propios"
-if (Test-Path -Path $OdooPropios -PathType Container) {
-    Get-ChildItem -Path $OdooPropios -Directory | ForEach-Object {
-        Update-GitRepo $_.FullName
-    }
+# 3.5. Actualizar plan de empresa en la raíz
+$PlanEmpresaDir = Join-Path $ProjectRoot "plan_de_empresa"
+if (Test-Path -Path $PlanEmpresaDir -PathType Container) {
+    Update-GitRepo $PlanEmpresaDir
 }
 
 Set-Location $OriginalDir

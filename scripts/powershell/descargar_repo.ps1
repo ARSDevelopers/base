@@ -11,16 +11,12 @@ $OriginalDir = Get-Location
 # Crear directorios si no existen
 $FrontendDir = Join-Path $ProjectRoot "frontend"
 $BackendDir = Join-Path $ProjectRoot "backend"
-$OrmDir = Join-Path $ProjectRoot "orm"
 
 if (-not (Test-Path -Path $FrontendDir -PathType Container)) {
     New-Item -ItemType Directory -Force -Path $FrontendDir | Out-Null
 }
 if (-not (Test-Path -Path $BackendDir -PathType Container)) {
     New-Item -ItemType Directory -Force -Path $BackendDir | Out-Null
-}
-if (-not (Test-Path -Path $OrmDir -PathType Container)) {
-    New-Item -ItemType Directory -Force -Path $OrmDir | Out-Null
 }
 
 Get-Content $Archivo | ForEach-Object {
@@ -31,12 +27,12 @@ Get-Content $Archivo | ForEach-Object {
     }
 
     $RepoName = [System.IO.Path]::GetFileNameWithoutExtension($Repo)
-    if ($RepoName -eq "service-odoo-sembrem") {
-        $TargetPath = Join-Path $OrmDir "service-odoo-sembrem"
-        $NameDesc = "orm/service-odoo-sembrem"
-    } elseif ($RepoName -eq "back-springboot-arsdev") {
+    if ($RepoName -eq "back-springboot-arsdev") {
         $TargetPath = Join-Path $BackendDir "back-springboot-arsdev"
         $NameDesc = "backend/back-springboot-arsdev"
+    } elseif ($RepoName -eq "plan_de_empresa") {
+        $TargetPath = Join-Path $ProjectRoot "plan_de_empresa"
+        $NameDesc = "plan_de_empresa"
     } else {
         $TargetPath = Join-Path $FrontendDir $RepoName
         $NameDesc = "frontend/$RepoName"

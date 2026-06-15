@@ -11,7 +11,6 @@ fi
 
 mkdir -p "$PROJECT_ROOT/frontend"
 mkdir -p "$PROJECT_ROOT/backend"
-mkdir -p "$PROJECT_ROOT/orm"
 
 while IFS= read -r REPO || [ -n "$REPO" ]; do
     # Ignorar líneas vacías o comentarios
@@ -22,12 +21,12 @@ while IFS= read -r REPO || [ -n "$REPO" ]; do
     REPO_NAME=$(basename "$REPO" .git)
     
     # Determinar ruta y nombre destino
-    if [ "$REPO_NAME" = "service-odoo-sembrem" ]; then
-        TARGET_PATH="$PROJECT_ROOT/orm/service-odoo-sembrem"
-        NAME_DESC="orm/service-odoo-sembrem"
-    elif [ "$REPO_NAME" = "back-springboot-arsdev" ]; then
+    if [ "$REPO_NAME" = "back-springboot-arsdev" ]; then
         TARGET_PATH="$PROJECT_ROOT/backend/back-springboot-arsdev"
         NAME_DESC="backend/back-springboot-arsdev"
+    elif [ "$REPO_NAME" = "plan_de_empresa" ]; then
+        TARGET_PATH="$PROJECT_ROOT/plan_de_empresa"
+        NAME_DESC="plan_de_empresa"
     else
         TARGET_PATH="$PROJECT_ROOT/frontend/$REPO_NAME"
         NAME_DESC="frontend/$REPO_NAME"

@@ -1,14 +1,13 @@
-# 1. Run docker
+# 1. Ejecutar Docker
 
-Se ha establecido **perfiles** para cada servicio (`odoo` / `spring`), por el momento.
-Una vez que ya no ser requiera el servicio, se debe de para la red para utilizar la otra.
+Para levantar todos los contenedores del proyecto (Frontend, Backend y Nginx Global):
 
 ```bash
-# para spring
-docker compose --profile spring-stack up
-# para odoo
-docker compose --profile odoo-stack up
-# para full-stack, levantar todos los contenedores
-docker compose --profile full-stack up
+docker compose up -d
+```
 
+Para detener los contenedores:
+
+```bash
+docker compose down
 ```
